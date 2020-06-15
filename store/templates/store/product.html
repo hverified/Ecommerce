@@ -1,0 +1,38 @@
+{% extends "store/base.html" %}
+{% load static %}
+{% block content %}
+	<div class="container-fluid my-4">
+		<div class="row">
+			<div class="col-md-4">
+				<div class="row">
+					<img class="thumbnail" src='{{product.imageURL}}' class="card-img-top">
+					
+					
+				</div>
+				<div class="my-2 text-center">
+					<hr>
+					<a class="btn btn-outline-dark" href="{% url 'store' %}">&#x2190; Go Back</a>
+					<a data-product={{product.id}} data-action="add" class="btn btn-outline-success add-btn update-cart mx-3">Add To Cart</a>
+				</div>
+			</div>
+			<div class="col-md-8 thumbnail">
+				<br>
+				<h4>{{product.name}}</h4>
+				<hr>
+				
+				<h4><b>&nbsp;&#8377;{{product.price}}</b></h4>
+				<div class="row">
+					<p style="color: gray">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>&#8377;{{originalPrice}}</strike>
+						<div style="color: #449e34"> &nbsp;10% off</div>
+					</p>
+				</div>
+				<p>{% for i in desc %}
+					<li>
+						{{i}}
+					</li>
+				{% endfor %}
+			</p>
+		</div>
+	</div>
+</div>
+{% endblock content %}
